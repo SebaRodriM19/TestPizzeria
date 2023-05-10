@@ -58,14 +58,37 @@ namespace PizzeriaSdominio.FactoryMethodPizzeria
 			if (extrasPizza.Contains(','))
 			{
 				var extras = extrasPizza.Split(",");
+				var pineapple = CheckPineappleInExtras(extras);
 				for (int i = 0; i < extras.Length; i++)
 				{
 					pizza = CheckSingleExtra(extras[i], pizza);
+				}
+
+				if (pineapple)
+				{
+					_pizza.SetCostToZero();
 				}
 			}
 
 			return pizza;
 		}
+
+		private bool CheckPineappleInExtras(string[] extras)
+		{
+			var res = false;
+
+			for (int i = 0; i < extras.Length; i++)
+			{
+				if (extras[i].Equals("Pineapple"))
+				{
+					res = true;
+					break;
+				}
+			}
+
+			return res;
+		}
+
 		private IPizza CheckSingleExtra(string extra, IPizza pizza) => extra switch
 		{
 			"Prosciutto crudo" => new RawHam(pizza),
@@ -91,7 +114,7 @@ namespace PizzeriaSdominio.FactoryMethodPizzeria
 		};
 
 
-		public string PizzaSelection => throw new NotImplementedException();
+		public string PizzaSelection => _pizza.GetDescription();
 
 	}
 }

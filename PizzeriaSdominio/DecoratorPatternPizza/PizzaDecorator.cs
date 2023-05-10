@@ -23,6 +23,11 @@ namespace PizzeriaSdominio.Entities
         {
 			return $"{_pizza.GetDescription()} {_basePizza};{_dough};{_extraOnPizza}";
         }
+
+		public void SetCostToZero()
+		{
+			_totalCost = 0.0;
+		}
     }
 }
 

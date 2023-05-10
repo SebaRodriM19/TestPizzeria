@@ -16,7 +16,11 @@ public class Pizza : IPizza
 
     public string GetDescription()
     {
-        throw new NotImplementedException();
+        return "";
+    }
+
+    public void SetCostToZero()
+    {
     }
 }
 

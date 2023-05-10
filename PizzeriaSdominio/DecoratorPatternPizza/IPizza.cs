@@ -5,6 +5,8 @@ namespace PizzeriaSdominio.Entities
 	{
 		public double GetCostPizza();
 		public string GetDescription();
-	}
+		public void SetCostToZero();
+
+    }
 }
 
