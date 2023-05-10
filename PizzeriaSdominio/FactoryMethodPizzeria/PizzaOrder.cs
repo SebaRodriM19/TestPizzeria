@@ -10,6 +10,7 @@ namespace PizzeriaSdominio.FactoryMethodPizzeria
 	{
 		private string _order;
 		private IPizza _pizza;
+		private int _idOrder = 0;
 
 		public PizzaOrder(string order)
 		{
@@ -113,8 +114,11 @@ namespace PizzeriaSdominio.FactoryMethodPizzeria
 			_ => throw new InvalidDoughException("Invalid dough.")
 		};
 
+		public IPizza GetPizza() => _pizza;
 
-		public string PizzaSelection => _pizza.GetDescription();
+        public int GetId() => _idOrder;
+
+        public string PizzaSelection => _pizza.GetDescription();
 
 	}
 }

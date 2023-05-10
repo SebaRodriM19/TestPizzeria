@@ -7,7 +7,7 @@ namespace PizzeriaSdominio.DecoratorPatternPizza
     {
         public Mushrooms(IPizza pizza) : base(pizza)
         {
-            _extraOnPizza = "Funghi";
+            _extraOnPizza = "Funghi,";
             _totalCost = 2.0;
         }
     }
